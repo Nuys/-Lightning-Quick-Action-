@@ -1,0 +1,11 @@
+public with sharing class CloseTaskController {
+	@AuraEnabled
+   public static String closeTask(Id taskId) {
+       List<Task__c> taskList = [SELECT Id, Status__c FROM Task__c WHERE Id = :taskId LIMIT 1];
+       for(Task__c task_i:taskList){
+           task_i.Status__c = 'Done';
+       }
+       update taskList;
+       return 'done';
+  }
+}
