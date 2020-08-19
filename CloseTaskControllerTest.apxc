@@ -3,9 +3,9 @@ public class CloseTaskControllerTest {
     @testSetup
     private static void setup(){
         Task__c newTaskTest = new Task__c(Status__c = 'To Do', Summary__c = 'Test', Max__c = 2);
-       insert newTaskTest;
+        insert newTaskTest;
     }
-@isTest
+    @isTest
     private static void closeTaskTest(){
         Task__c newTaskTest = [SELECT Id, Status__c FROM Task__c];
         
